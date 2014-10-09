@@ -564,6 +564,11 @@
     // No implementation here. Meant to be overriden in subclass.
 }
 
+- (void) textViewText:(NSString *)text
+{
+    // No implementation here. Meant to be overriden in subclass.
+}
+
 - (void)textDidUpdate:(BOOL)animated
 {
     self.textInputbar.rightButton.enabled = [self canPressRightButton];
@@ -888,6 +893,8 @@
 
 - (void)willChangeTextView:(NSNotification *)notification
 {
+    [self textViewText:notification.userInfo[@"newText"]];
+    
     SLKTextView *textView = (SLKTextView *)notification.object;
     
     // Skips this it's not the expected textView.

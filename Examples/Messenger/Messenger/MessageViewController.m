@@ -176,8 +176,13 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
 - (void)textWillUpdate
 {
     // Notifies the view controller that the text will update.
-
+    
     [super textWillUpdate];
+}
+
+- (void) textViewText:(NSString *)text
+{
+    NSLog(@"text %@", text);
 }
 
 - (void)textDidUpdate:(BOOL)animated

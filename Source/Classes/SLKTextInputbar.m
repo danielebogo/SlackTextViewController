@@ -431,7 +431,9 @@ NSString * const SCKInputAccessoryViewKeyboardFrameDidChangeNotification = @"com
         return NO;
     }
     else {
-        NSDictionary *userInfo = @{@"text": text, @"range": [NSValue valueWithRange:range]};
+        NSString *newText = [textView.text stringByReplacingCharactersInRange:range withString:text];
+        
+        NSDictionary *userInfo = @{@"text": text, @"range": [NSValue valueWithRange:range], @"newText":newText };
         [[NSNotificationCenter defaultCenter] postNotificationName:SLKTextViewTextWillChangeNotification object:self.textView userInfo:userInfo];
         
         return YES;

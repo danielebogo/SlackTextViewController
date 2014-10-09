@@ -138,6 +138,8 @@ typedef NS_ENUM(NSUInteger, SLKKeyboardStatus) {
  */
 - (void)textWillUpdate;
 
+- (void) textViewText:(NSString *)text;
+
 /**
  Notifies the view controller that the text did update.
  @discussion You can override this method to perform additional tasks associated with presenting the view. You MUST call super at some point in your implementation.
