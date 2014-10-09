@@ -106,4 +106,6 @@ extern NSString * const SCKInputAccessoryViewKeyboardFrameDidChangeNotification;
  */
 - (void)endTextEdition;
 
+- (void) hideLeftButton;
+
 @end

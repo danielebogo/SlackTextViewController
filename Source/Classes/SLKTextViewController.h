@@ -75,6 +75,10 @@ typedef NS_ENUM(NSUInteger, SLKKeyboardStatus) {
 @property (nonatomic, readonly) UIButton *leftButton;
 @property (nonatomic, readonly) UIButton *rightButton;
 
+
+- (void) hideLeftButton;
+
+
 /**
  Initializes a text view controller to manage a table view of a given style.
  @discussion If you use the standard -init method, a table view with plain style will be created.

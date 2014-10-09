@@ -79,6 +79,8 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
     
     [self.leftButton setImage:[UIImage imageNamed:@"icn_upload"] forState:UIControlStateNormal];
     [self.leftButton setTintColor:[UIColor grayColor]];
+
+//    [self hideLeftButton];
     
     [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     

@@ -376,7 +376,7 @@ NSString * const SCKInputAccessoryViewKeyboardFrameDidChangeNotification = @"com
         counter = [NSString stringWithFormat:@"%ld/%ld", (unsigned long)text.length, (unsigned long)self.maxCharCount];
     }
     if (self.counterStyle == SLKCounterStyleCountdown) {
-        counter = [NSString stringWithFormat:@"%u", text.length-self.maxCharCount];
+        counter = [NSString stringWithFormat:@"%lu", text.length-self.maxCharCount];
     }
     
     self.charCountLabel.text = counter;
@@ -576,6 +576,14 @@ NSString * const SCKInputAccessoryViewKeyboardFrameDidChangeNotification = @"com
         self.rightButtonWC.constant = [self appropriateRightButtonWidth];
         self.rightMarginWC.constant = [self appropriateRightButtonMargin];
     }
+}
+
+- (void) hideLeftButton
+{
+    self.leftButtonWC.constant = 0;
+    self.leftButtonHC.constant = 0;
+    self.leftMarginWC.constant = 0;
+    self.leftButton.hidden = YES;
 }
 
 #pragma mark - Observers

@@ -1143,6 +1143,11 @@
 										animations:NULL];
 }
 
+- (void) hideLeftButton
+{
+    [self.textInputbar hideLeftButton];
+}
+
 
 #pragma mark - UITableViewDataSource Methods
 
