@@ -326,9 +326,9 @@
     [self checkForExternalKeyboardInNotification:notification];
     
     // Return 0 if an external keyboard has been detected
-    if (self.isExternalKeyboard) {
-        return 0.0;
-    }
+//    if (self.isExternalKeyboard) {
+//        return 0.0;
+//    }
     
     CGFloat keyboardHeight = 0.0;
     CGFloat tabBarHeight = ([self.tabBarController.tabBar isHidden] || self.hidesBottomBarWhenPushed) ? 0.0 : CGRectGetHeight(self.tabBarController.tabBar.frame);
