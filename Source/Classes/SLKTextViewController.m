@@ -72,7 +72,10 @@
 
 - (instancetype)initWithTableViewStyle:(UITableViewStyle)style
 {
-    if (self = [super initWithNibName:nil bundle:nil]) {
+    NSAssert([self class] != [SLKTextViewController class], @"Oops! You must subclass SLKTextViewController.");
+
+    if (self = [super initWithNibName:nil bundle:nil])
+    {
         [self tableViewWithStyle:style];
         [self commonInit];
     }
@@ -81,8 +84,35 @@
 
 - (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
 {
-    if (self = [super initWithNibName:nil bundle:nil]) {
+    NSAssert([self class] != [SLKTextViewController class], @"Oops! You must subclass SLKTextViewController.");
+
+    if (self = [super initWithNibName:nil bundle:nil])
+    {
         [self collectionViewWithLayout:layout];
+        [self commonInit];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)decoder
+{
+    NSAssert([self class] != [SLKTextViewController class], @"Oops! You must subclass SLKTextViewController.");
+    
+    if (self = [super initWithCoder:decoder])
+    {
+        UITableViewStyle tableViewStyle = [[self class] tableViewStyleForCoder:decoder];
+        UICollectionViewLayout *collectionViewLayout = [[self class] collectionViewLayoutForCoder:decoder];
+        
+        if ([collectionViewLayout isKindOfClass:[UICollectionViewLayout class]]) {
+            [self collectionViewWithLayout:collectionViewLayout];
+        }
+        else if (tableViewStyle == UITableViewStylePlain || tableViewStyle == UITableViewStyleGrouped) {
+            [self tableViewWithStyle:tableViewStyle];
+        }
+        else {
+            return nil;
+        }
+        
         [self commonInit];
     }
     return self;
@@ -144,6 +174,16 @@
 
 
 #pragma mark - Getters
+
++ (UITableViewStyle)tableViewStyleForCoder:(NSCoder *)decoder
+{
+    return UITableViewStylePlain;
+}
+
++ (UICollectionViewLayout *)collectionViewLayoutForCoder:(NSCoder *)decoder
+{
+    return nil;
+}
 
 - (UITableView *)tableViewWithStyle:(UITableViewStyle)style
 {
@@ -488,20 +528,26 @@
 
 - (void)checkForExternalKeyboardInNotification:(NSNotification *)notification
 {
-    CGRect beginFrame = [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-    CGRect endFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    
-    CGRect keyboardFrame = CGRectZero;
+    CGRect targetRect = CGRectZero;
     
     if ([notification.name isEqualToString:UIKeyboardWillShowNotification]) {
-        keyboardFrame = [self.view convertRect:[self.view.window convertRect:endFrame fromWindow:nil] fromView:nil];
+        targetRect = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     }
     else if ([notification.name isEqualToString:UIKeyboardWillHideNotification]) {
-        keyboardFrame = [self.view convertRect:[self.view.window convertRect:beginFrame fromWindow:nil] fromView:nil];
+        targetRect = [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     }
     
+    CGRect keyboardFrame = [self.view convertRect:[self.view.window convertRect:targetRect fromWindow:nil] fromView:nil];
+    
     if (!self.isMovingKeyboard) {
-        _externalKeyboard = keyboardFrame.origin.y + keyboardFrame.size.height > self.view.bounds.size.height;
+        
+        CGFloat maxKeyboardHeight = keyboardFrame.origin.y + keyboardFrame.size.height;
+        
+        // Reduces the tab bar height (if it's visible)
+        CGFloat tabBarHeight = ([self.tabBarController.tabBar isHidden] || self.hidesBottomBarWhenPushed) ? 0.0 : CGRectGetHeight(self.tabBarController.tabBar.frame);
+        maxKeyboardHeight -= tabBarHeight;
+        
+        _externalKeyboard = maxKeyboardHeight > CGRectGetHeight(self.view.bounds);
     }
     
     if (CGRectIsNull(keyboardFrame)) {

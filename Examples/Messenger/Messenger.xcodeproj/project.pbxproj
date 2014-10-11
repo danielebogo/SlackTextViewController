@@ -10,7 +10,7 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>328FA32F318E121A25492928</key>
+		<key>4377E81EA146870DFCB24775</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -19,9 +19,9 @@
 			<key>lastKnownFileType</key>
 			<string>text.xcconfig</string>
 			<key>name</key>
-			<string>Pods.release.xcconfig</string>
+			<string>Pods.debug.xcconfig</string>
 			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
+			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -32,14 +32,105 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>4F1AD51C19E727640027043E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4F1AD51D19E727750027043E</string>
+				<string>4F1AD52019E727750027043E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Templates</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4F1AD51D19E727750027043E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4F1AD51E19E727750027043E</string>
+				<string>4F1AD51F19E727750027043E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>UICollectionView</string>
+			<key>path</key>
+			<string>../../File Templates/SlackTextView Controller.xctemplate/UICollectionView</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4F1AD51E19E727750027043E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>___FILEBASENAME___.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4F1AD51F19E727750027043E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>___FILEBASENAME___.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4F1AD52019E727750027043E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4F1AD52119E727750027043E</string>
+				<string>4F1AD52219E727750027043E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>UITableView</string>
+			<key>path</key>
+			<string>../../File Templates/SlackTextView Controller.xctemplate/UITableView</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4F1AD52119E727750027043E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>___FILEBASENAME___.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4F1AD52219E727750027043E</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>___FILEBASENAME___.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>4F3EDB40199ED00F004C15D6</key>
 		<dict>
 			<key>children</key>
 			<array>
 				<string>4F3EDB52199ED00F004C15D6</string>
+				<string>4F1AD51C19E727640027043E</string>
 				<string>4F3EDB4B199ED00F004C15D6</string>
 				<string>4F3EDB4A199ED00F004C15D6</string>
-				<string>71F892CEC30D8B2CBC3D6B46</string>
+				<string>F5FBB983FA04B6898998FEBB</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -584,7 +675,7 @@
 		<key>4F3EDB7F199ED00F004C15D6</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>F255597A88FEB8FF27D32CB5</string>
+			<string>4377E81EA146870DFCB24775</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -610,7 +701,7 @@
 		<key>4F3EDB80199ED00F004C15D6</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>328FA32F318E121A25492928</string>
+			<string>D9D985707D5E6F892AE806E5</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -723,20 +814,6 @@
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
-		<key>71F892CEC30D8B2CBC3D6B46</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F255597A88FEB8FF27D32CB5</string>
-				<string>328FA32F318E121A25492928</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>CDD847F204B5437180FB97BB</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -767,6 +844,21 @@ fi
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
+		<key>D9D985707D5E6F892AE806E5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>DDFA9095EABC480682E6396C</key>
 		<dict>
 			<key>explicitFileType</key>
@@ -780,18 +872,17 @@ fi
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>F255597A88FEB8FF27D32CB5</key>
+		<key>F5FBB983FA04B6898998FEBB</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>children</key>
+			<array>
+				<string>4377E81EA146870DFCB24775</string>
+				<string>D9D985707D5E6F892AE806E5</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Pods.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
+			<string>Pods</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
