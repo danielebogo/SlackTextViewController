@@ -76,11 +76,10 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
     self.textView.placeholder = NSLocalizedString(@"Message", nil);
     self.textView.placeholderColor = [UIColor lightGrayColor];
     self.textView.layer.borderColor = [UIColor colorWithRed:217.0/255.0 green:217.0/255.0 blue:217.0/255.0 alpha:1.0].CGColor;
+    self.textView.pastableMediaTypes = SLKPastableMediaTypeAll;
     
     [self.leftButton setImage:[UIImage imageNamed:@"icn_upload"] forState:UIControlStateNormal];
     [self.leftButton setTintColor:[UIColor grayColor]];
-
-//    [self hideLeftButton];
     
     [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     
@@ -98,10 +97,16 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
     [self registerPrefixesForAutoCompletion:@[@"@", @"#", @":"]];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
 }
+
 
 #pragma mark - Action Methods
 
@@ -176,13 +181,8 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
 - (void)textWillUpdate
 {
     // Notifies the view controller that the text will update.
-    
-    [super textWillUpdate];
-}
 
-- (void) textViewText:(NSString *)text
-{
-    NSLog(@"text %@", text);
+    [super textWillUpdate];
 }
 
 - (void)textDidUpdate:(BOOL)animated
@@ -218,11 +218,11 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
     [super didPressRightButton:sender];
 }
 
-- (void)didPasteImage:(UIImage *)image
+- (void)didPasteMediaContent:(NSDictionary *)userInfo
 {
     // Notifies the view controller when the user has pasted an image inside of the text view.
     
-    NSLog(@"%s",__FUNCTION__);
+    NSLog(@"%s : %@",__FUNCTION__, userInfo);
 }
 
 - (void)willRequestUndo
@@ -469,6 +469,15 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
         
         [self acceptAutoCompletionWithString:item];
     }
+}
+
+
+#pragma mark - UITableViewDelegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // Since SLKTextViewController uses UIScrollViewDelegate to update a few things, it is important that if you ovveride this method, to call super.
+    [super scrollViewDidScroll:scrollView];
 }
 
 @end

@@ -10,21 +10,6 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>4377E81EA146870DFCB24775</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>4A8EFBBFAC0F49199AAABF46</key>
 		<dict>
 			<key>fileRef</key>
@@ -130,7 +115,7 @@
 				<string>4F1AD51C19E727640027043E</string>
 				<string>4F3EDB4B199ED00F004C15D6</string>
 				<string>4F3EDB4A199ED00F004C15D6</string>
-				<string>F5FBB983FA04B6898998FEBB</string>
+				<string>68B0EE14916D384C7E703B9B</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -675,7 +660,7 @@
 		<key>4F3EDB7F199ED00F004C15D6</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>4377E81EA146870DFCB24775</string>
+			<string>622BF1F6C9CF013275EF6275</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -701,7 +686,7 @@
 		<key>4F3EDB80199ED00F004C15D6</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>D9D985707D5E6F892AE806E5</string>
+			<string>C905E5DB18A83F74BD092CDD</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -814,6 +799,50 @@
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
+		<key>622BF1F6C9CF013275EF6275</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>68B0EE14916D384C7E703B9B</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>622BF1F6C9CF013275EF6275</string>
+				<string>C905E5DB18A83F74BD092CDD</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C905E5DB18A83F74BD092CDD</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>CDD847F204B5437180FB97BB</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -844,21 +873,6 @@ fi
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
-		<key>D9D985707D5E6F892AE806E5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>DDFA9095EABC480682E6396C</key>
 		<dict>
 			<key>explicitFileType</key>
@@ -871,20 +885,6 @@ fi
 			<string>libPods.a</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>F5FBB983FA04B6898998FEBB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4377E81EA146870DFCB24775</string>
-				<string>D9D985707D5E6F892AE806E5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>

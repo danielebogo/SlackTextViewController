@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, SLKKeyboardStatus) {
 };
 
 /** @name A drop-in UIViewController subclass with a growing text input view and other useful messaging features. */
-@interface SLKTextViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface SLKTextViewController : UIViewController <UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 /** The main table view managed by the controller object. Created by default initializing with -init or initWithNibName:bundle: */
 @property (nonatomic, readonly) UITableView *tableView;
@@ -55,7 +55,7 @@ typedef NS_ENUM(NSUInteger, SLKKeyboardStatus) {
 @property (nonatomic, assign) BOOL keyboardPanningEnabled;
 
 /** YES if an external keyboard has been detected (this value only changes when the text view becomes first responder). */
-@property (nonatomic, readonly, getter=isExternalKeyboard) BOOL externalKeyboard;
+@property (nonatomic, readonly, getter=isExternalKeyboardDetected) BOOL externalKeyboardDetected;
 
 /**
  YES if the main table view is inverted. Default is YES.
@@ -76,8 +76,9 @@ typedef NS_ENUM(NSUInteger, SLKKeyboardStatus) {
 @property (nonatomic, readonly) UIButton *rightButton;
 
 
-- (void) hideLeftButton;
-
+///------------------------------------------------
+/// @name Initialization
+///------------------------------------------------
 
 /**
  Initializes a text view controller to manage a table view of a given style.
@@ -155,8 +156,6 @@ typedef NS_ENUM(NSUInteger, SLKKeyboardStatus) {
  */
 - (void)textWillUpdate;
 
-- (void) textViewText:(NSString *)text;
-
 /**
  Notifies the view controller that the text did update.
  @discussion You can override this method to perform additional tasks associated with presenting the view. You MUST call super at some point in your implementation.
@@ -195,7 +194,16 @@ typedef NS_ENUM(NSUInteger, SLKKeyboardStatus) {
  
  @param image The image that has been pasted. Only JPG or PNG are supported.
  */
-- (void)didPasteImage:(UIImage *)image;
+- (void)didPasteImage:(UIImage *)image DEPRECATED_MSG_ATTRIBUTE("Use -didPasteMediaContent: instead");
+
+/** 
+ Notifies the view controller when the user has pasted a supported media content (image or video).
+ @discussion You can override this method to perform additional tasks associated with image/video pasting. You don't need call super since this method doesn't do anything.
+ Only supported pastable medias configured in SLKTextView will be forwarded. Default is All.
+ 
+ @para userInfo The payload containing the media data, content and media types.
+ */
+- (void)didPasteMediaContent:(NSDictionary *)userInfo;
 
 /**
  Verifies that the typing indicator view should be shown. Default is YES, if meeting some requierements.
